@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="header :: header"></div>
+
+<h1>Lista de Posts</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Contenido</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="post : ${posts}">
+        <td th:text="${post.id}"></td>
+        <td th:text="${post.title}"></td>
+        <td th:text="${post.body}"></td>
+    </tr>
+
+    </tbody>
+</table>
+<div th:replace="footer :: footer"></div>
+</body>
+</html>
